@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Peserta;
 use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,19 +13,24 @@ class SertifikatController extends Controller
     
     public function index(Request $request)
     {
-        $sertifikat=Sertifikat::orderBy('tanggal','asc')->simplePaginate(3);
-        $filterKeyword = $request->get('keyword');
-        if($filterKeyword)
-        {
-            $sertifikat = Sertifikat::where('tanggal','LIKE',"%$filterKeyword")->paginate(1);
+        $sertifikat = Sertifikat::orderBy('nama_instansi', 'asc')
+        ->join('pesertas', 'sertifikats.id_peserta', '=', 'pesertas.id')
+        ->select('sertifikats.*', 'pesertas.nama_peserta')
+        ->with('peserta');
+
+        $filterKeyword = $request->keyword;
+        if ($filterKeyword) {
+            $sertifikat->where('pesertas.nama_peserta', 'like', "%$filterKeyword%");
         }
-        return view('sertifikat.index',compact('sertifikat'));
+
+        $sertifikat = $sertifikat->paginate(25);
+        return view('sertifikat.index', compact('sertifikat'));
     }
 
     public function create()
     {
-        $sertifikat = Sertifikat::all();
-        return view('sertifikat.create', compact('sertifikat'));
+        $pesertas = Peserta::all();
+        return view('sertifikat.create', compact('pesertas'));
     }
 
    
@@ -36,7 +42,7 @@ class SertifikatController extends Controller
             'deskripsi' => 'required',
             'nama_ceo' => 'required',
             'nama_mentor' => 'required',
-            'nama_perusahaan' => 'required',
+            'nama_instansi' => 'required',
             'tempat' => 'required',
             'tanggal' => 'required|date',
             'gambar_ttdceo' => 'required|image|mimes:jpeg,jpg,png|max:2048',
@@ -72,6 +78,7 @@ class SertifikatController extends Controller
     public function show(string $id)
     {
         $sertifikat = sertifikat::findOrfail($id);
+        $sertifikat->load('peserta');
         return view('sertifikat.show',compact('sertifikat'));
     }
 
@@ -79,7 +86,9 @@ class SertifikatController extends Controller
     public function edit(string $id)
     {
         $sertifikat = sertifikat::findOrfail($id);
-        return view('sertifikat.edit',compact('sertifikat'));
+        $pesertas = Peserta::all();
+
+        return view('sertifikat.edit',compact('sertifikat','peserta'));
     }
 
     
@@ -92,15 +101,15 @@ class SertifikatController extends Controller
             'deskripsi' => 'required',
             'nama_ceo' => 'required',
             'nama_mentor' => 'required',
-            'nama_perusahaan' => 'required',
+            'nama_instansi' => 'required',
             'tempat' => 'required',
             'tanggal' => 'required|date',
-            'gambar_ttdceo' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'gambar_ttdmentor' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'gambar_ttdceo' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'gambar_ttdmentor' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
-
+        
         if ($validator->fails()) {
-            return redirect()->route('sertifikat.edit', ['id' => $id])->withInput()->withErrors($validator);
+            return redirect()->route('sertifikat.create')->withInput()->withErrors($validator);
         }
 
         // Update gambar_ttdceo jika ada

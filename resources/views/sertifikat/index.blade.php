@@ -21,7 +21,7 @@
                 <form method="get" action="{{ route('sertifikat.index') }}">
                     <div class="input-group">
                         <input type="search" class="form-control form-control-sm" id="keyword" name="keyword"
-                            value="{{ request('name') }}" placeholder="Search by Nama">
+                            value="{{ request('keyword') }}" placeholder="Search by Nama Peserta">
                         <div class="input-group-append">
                             <button class="btn btn-sm btn-default">
                                 <i class="fa fa-search"></i>
@@ -30,6 +30,7 @@
                     </div>
                 </form>
             </div>
+            
                 </div>
                 @if (Request::get('keyword'))
                 <div class="alert alert-info alert-block">
@@ -71,6 +72,9 @@
                                         </a>
                                         <a class="btn btn-warning" href="{{ route('sertifikat.show', [$row->id]) }}">
                                             <i class="fa fa-eye"></i>
+                                        </a>     
+                                        <a class="btn btn-danger" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
+                                            <i class="fas fa-print"></i>
                                         </a>
                                     </form>
                                 </td>
