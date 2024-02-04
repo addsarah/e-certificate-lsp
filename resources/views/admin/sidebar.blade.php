@@ -27,55 +27,21 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-close">
-          <a href="{{ route('user.index') }}" class="nav-link active">
-            <i class="nav-icon fas fa-book-open"></i>
+        <li class="nav-item">
+          <a href="{{ route('peserta.index') }}" class="nav-link">
+            <i class="fas fa-user-graduate nav-icon"></i>
             <p>
-              Menu Master
-              <i class="right fas fa-angle-left"></i>
+              Peserta
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('user.index') }}" class="nav-link">
-                <i class="far fa-user nav-icon"></i>
-                <p>User</p>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('peserta.index') }}" class="nav-link">
-                <i class="fas fa-user-graduate nav-icon"></i>
-                <p>Peserta</p>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('sertifikat.index') }}" class="nav-link">
-                <i class="fas fa-award nav-icon"></i>
-                <p>Sertifikat</p>
-              </a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item menu-close">
-          <a href="{{ url('#') }}" class="nav-link active">
-            <i class="nav-icon fas fa-sticky-note"></i>
+        <li class="nav-item">
+          <a href="{{ route('sertifikat.index') }}" class="nav-link">
+            <i class="fas fa-award nav-icon"></i>
             <p>
-              Laporan
-              <i class="right fas fa-angle-left"></i>
+              Sertifikat
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('reportuser.index') }}" class="nav-link">
-                <i class="fas fa-envelope-open-text nav-icon"></i>
-                <p>Report User</p>
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
           <form method="POST" action="{{ route('logout') }}" class="nav-link">
