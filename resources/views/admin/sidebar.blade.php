@@ -1,7 +1,6 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="{{ url("index3.html") }}" class="brand-link">
-    <img src="{{ asset("/admin/dist/img/logo.png") }}" alt="AdminLTE Logo" class="brand-image ">
+  <a href="{{ route('dashboard') }}" class="brand-link">
     <span class="brand-text font-weight-light">E-Sertif</span>
   </a>
 
@@ -9,9 +8,6 @@
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="{{ asset("/admin/dist/img/user2-160x160.jpg") }}" class="img-circle elevation-2" alt="User Image">
-      </div>
       <div class="info">
     @if (Auth::check())
         <span class="hidden-xs">{{ Auth::user()->name }}</span>
