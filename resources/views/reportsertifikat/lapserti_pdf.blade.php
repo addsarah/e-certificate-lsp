@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=landscape, initial-scale=1.0">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -11,21 +11,22 @@
         }
 
         .sertifikat-container {
-            max-width: 600px;
+            max-height: 1241px;
+            max-width:  1754px;
             margin: 50px auto;
-            border: 2px solid #000;
+            border: 2px solid rgb(32, 136, 255);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
-            max-width: 100px;
+            max-width: 200px;
         }
 
         .header {
             color: #0066cc;
-            font-size: 24px;
+            font-size: 32px;
             margin-bottom: 10px;
         }
 
@@ -34,23 +35,6 @@
             margin-bottom: 10px;
         }
 
-        .ttd img {
-            max-width: 150px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .ceo-info,
-        .mentor-info {
-            font-size: 16px;
-        }
-
-        .tanggal-tempat {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 14px;
-        }
     </style>
 </head>
 <body>
@@ -59,8 +43,10 @@
         <img src="{{ public_path('images/logo.png') }}" alt="Logo" class="logo" />
         <h1 class="header">Sertifikat</h1>
         <p class="info">{{ $row->peserta->no_serti }}</p>
-        <p class="info">Diberikan Kepada {{ $row->peserta->nama_peserta }}</p>
-        <p class="info">Atas Kelulusannya pada Kelas Pelatihan "{{ $row->peserta->tema_pel }}", "{{ $row->deskripsi }}"</p>
+        <p class="info">Diberikan Kepada</p>
+        <p class="info">{{ $row->peserta->nama_peserta }}</p>
+        <p class="info">Atas Kelulusannya pada Kelas Pelatihan "{{ $row->peserta->tema_pel }}"</p>
+        <p class="info">{{ $row->deskripsi }}</p>
         <p class="info">Yang diselenggarakan oleh {{ $row->nama_instansi }}</p>
         <p class="info">{{ $row->tempat }}, {{ strftime('%d %B %Y', strtotime($row->tanggal)) }}</p>
         
