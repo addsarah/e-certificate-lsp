@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <textarea class="form-control" type="text" name="deskripsi" value="{{ old('deskripsi') }} placeholder="Input Deskripsi Pelatihan, maksimal 254 kata"></textarea>
+                                    <input type="text" class="form-control" type="text" name="deskripsi" value="{{ old('deskripsi') }} placeholder="Input Deskripsi Pelatihan, maksimal 254 kata"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 label-control">Nama Ceo</label>
