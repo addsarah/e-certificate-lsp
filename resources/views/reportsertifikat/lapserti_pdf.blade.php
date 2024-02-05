@@ -64,17 +64,6 @@
         <p class="info">Yang diselenggarakan oleh {{ $row->nama_instansi }}</p>
         <p class="info">{{ $row->tempat }}, {{ strftime('%d %B %Y', strtotime($row->tanggal)) }}</p>
         
-        <!-- Tanda Tangan CEO -->
-        <div class="ttd ceo-info">
-            <img src="{{ asset('uploads/'.$row->gambar_ttdceo) }}" alt="Tanda Tangan CEO">
-            <p>{{ $row->nama_ceo }}</p>
-        </div>
-
-        <!-- Tanda Tangan Mentor -->
-        <div class="ttd mentor-info">
-            <img src="{{ asset('uploads/'.$row->gambar_ttdmentor) }}" alt="Tanda Tangan Mentor">
-            <p>{{ $row->nama_mentor }}</p>
-        </div>
         @endforeach
     </div>
 </body>
