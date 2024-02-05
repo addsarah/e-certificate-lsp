@@ -54,17 +54,17 @@
                                 <td>{{$row->no_serti}}</td>
                                 <td>
                                     @switch($row->tema_pel)
-                                    @case('digi-enterpre')
-                                    Digital Enterpreneurship Academy
+                                    @case('fe')
+                                    Front End Academy
+                                    @break
+                                    @case('be')
+                                    Back End Academy
                                     @break
                                     @case('pro')
                                     Profesional Academy
                                     @break
-                                    @case('voc-gra')
-                                    Vocational School Graduate Academy
-                                    @break
-                                    @case('fre-gra')
-                                    Fresh Graduate Academy
+                                    @case('ui')
+                                    UI / UX Academy
                                     @break
                                     @default
                                     {{ $row->nama_pel }}

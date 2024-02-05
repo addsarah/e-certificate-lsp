@@ -37,13 +37,13 @@
                             <div class="form-group">
                                 <label class="form-control-label">Tema Pelatihan: <span class="tx-danger">*</span></label>
                                 <select name="tema_pel" class="form-control select2">
-                                    <option value="digi-enterpre" @if ($peserta->tema_pel == 'digi-enterpre')  @endif> Digital Enterpreneurship Academy
+                                    <option value="be" @if ($peserta->tema_pel == 'be')  @endif> Back End Academy
+                                    </option>
+                                    <option value="fe" @if ($peserta->tema_pel == 'fe')  @endif>Front End Academy
                                     </option>
                                     <option value="pro" @if ($peserta->tema_pel == 'pro')  @endif>Profesional Academy
                                     </option>
-                                    <option value="voc-gra" @if ($peserta->tema_pel == 'voc-gra')  @endif>Vocational School Graduate Academy
-                                    </option>
-                                    <option value="fre-gra" @if ($peserta->tema_pel == 'fre-gra')  @endif>Fresh Graduate Academy
+                                    <option value="ui" @if ($peserta->tema_pel == 'ui')  @endif>UI / UX Academy
                                     </option>
                                 </select>
                             </div>

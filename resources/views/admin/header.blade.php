@@ -1,5 +1,5 @@
 @section ('title')
-    Bello Group
+    E - Sertifikat
     @endsection
 <div class="content-header">
     <div class="container-fluid">

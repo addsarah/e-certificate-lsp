@@ -15,7 +15,6 @@
                @else
                <a class="btn btn-app bg-success"href="{{ route('sertifikat.create')}}" >
                  <i class="fas fa-plus"></i> Tambah</a>     
-                 <a target="_blank" href = "{{route('cetak_sertifikat')}}" class="btn btn-danger float-left" ><i class="fas fa-print"></i> Print PDF</a>
                @endif
                <div class="col-md-3 ml-auto">
                 <form method="get" action="{{ route('sertifikat.index') }}">
@@ -73,7 +72,7 @@
                                         <a class="btn btn-warning" href="{{ route('sertifikat.show', [$row->id]) }}">
                                             <i class="fa fa-eye"></i>
                                         </a>     
-                                        <a class="btn btn-danger" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
+                                        <a class="btn btn-success" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
                                             <i class="fas fa-print"></i>
                                         </a>
                                     </form>

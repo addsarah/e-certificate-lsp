@@ -38,10 +38,10 @@ Tambah Data peserta
                             <div class="col-sm-12">
                                 <select name="tema_pel" class="form-control">
                                     <option label="Pilih Tema Pelatihan"></option>
-                                    <option value="digi-enterpre">Digital Enterpreneurship Academy</option>
+                                    <option value="be">Back End Academy</option>
+                                    <option value="fe">Front End Academy</option>
                                     <option value="pro">Profesional Academy</option>
-                                    <option value="voc-gra">Vocational School Graduate Academy</option>
-                                    <option value="fre-gra">Fresh Graduate Academy</option>
+                                    <option value="ui">UI / UX Academy</option>
                                 </select>
                             </div>
                         </div>

@@ -28,17 +28,17 @@ Detail Data Peserta {{ $peserta->nama_peserta }}
                     <td>:</td>
                     <td>
                         @switch($peserta->tema_pel)
-                        @case('digi-enterpre')
-                        Digital Enterpreneurship Academy
+                        @case('fe')
+                        Front End Academy
+                        @break
+                        @case('be')
+                        Back End Academy
                         @break
                         @case('pro')
                         Profesional Academy
                         @break
-                        @case('voc-gra')
-                        Vocational School Graduate Academy
-                        @break
-                        @case('fre-gra')
-                        Fresh Graduate Academy
+                        @case('ui')
+                        UI / UX Academy
                         @break
                         @default
                         {{ $peserta->nama_pel }}
