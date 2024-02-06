@@ -42,4 +42,4 @@ Route::resource('reportsertifikat','App\Http\Controllers\ReportSertifikatControl
 // Cetak PDF
 Route::get('cetak_user','App\Http\Controllers\ReportUserController@cetak_user')->name('cetak_user');
 Route::get('cetak_peserta','App\Http\Controllers\ReportPesertaController@cetak_peserta')->name('cetak_peserta');
-Route::get('/cetak_sertifikat/{id}', 'ReportSertifikatController@cetak_sertifikat')->name('cetak_sertifikat');
+Route::get('cetak_sertifikat','App\Http\Controllers\ReportSertifikatController@cetak_sertifikat')->name('cetak_sertifikat');

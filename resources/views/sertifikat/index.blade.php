@@ -72,9 +72,9 @@
                                         <a class="btn btn-warning" href="{{ route('sertifikat.show', [$row->id]) }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a class="btn btn-success" href="{{ route('cetak_sertifikat', ['id' => $row->id]) }}">
+                                        <a class="btn btn-success" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
                                             <i class="fas fa-print"></i>
-                                        </a>                                                                                                                        
+                                        </a>
                                     </form>
                                 </td>
                             </tr>

@@ -18,6 +18,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Menetapkan posisi relatif pada container */
         }
 
         .logo {
@@ -34,12 +35,28 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
+
+        /* Menambahkan gaya untuk tanda tangan CEO */
+        .ttd-ceo {
+            position: absolute;
+            bottom: 20px; /* Menetapkan jarak dari bawah */
+            left: 20px; /* Menetapkan jarak dari kiri */
+            text-align: left; /* Menetapkan teks ke kiri */
+        }
+
+        /* Menambahkan gaya untuk tanda tangan Mentor */
+        .ttd-mentor {
+            position: absolute;
+            bottom: 20px; /* Menetapkan jarak dari bawah */
+            right: 20px; /* Menetapkan jarak dari kanan */
+            text-align: right; /* Menetapkan teks ke kanan */
+        }
     </style>
 </head>
 <body>
     <div class="sertifikat-container">
         @foreach($R_sertifikat as $row)
-            <img src="{{ public_path('images/logo.png') }}" alt="Logo" class="logo" />
+            <!-- Hanya menampilkan beberapa informasi untuk uji coba -->
             <h1 class="header">Sertifikat</h1>
             <p class="info">{{ $row->peserta->no_serti }}</p>
             <p class="info">Diberikan Kepada</p>
@@ -48,6 +65,22 @@
             <p class="info">{{ $row->deskripsi }}</p>
             <p class="info">Yang diselenggarakan oleh {{ $row->nama_instansi }}</p>
             <p class="info">{{ $row->tempat }}, {{ strftime('%d %B %Y', strtotime($row->tanggal)) }}</p>
+
+            <!-- Tanda Tangan CEO -->
+            <div class="ttd-ceo">
+                <img src="{{ asset('uploads/sertifikat_ttdmentor/' . $row->gambar_ttdmentor) }}" width="50px">
+                <div class="ceo-info">
+                    <p>{{ $row->nama_ceo }}</p>
+                </div>
+            </div>
+    
+            <!-- Tanda Tangan Mentor -->
+            <div class="ttd-mentor">
+                <img src="{{ asset('uploads/sertifikat_ttdmentor/' . $row->gambar_ttdmentor) }}" width="50px">
+                <div class="mentor-info">
+                    <p>{{ $row->nama_mentor }}</p>
+                </div>
+            </div>
         @endforeach
     </div>
 </body>
