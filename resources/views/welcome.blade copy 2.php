@@ -32,23 +32,23 @@
             <div class="mb-3">
                 <h3 class="text-center mb-3 " style="margin-top: 15rem">Dapatkan Sertifikatmu Disini</h3>
                 <div class="box-header with-border">
+                    @if (Request::get('keyword'))
+                        <a class="btn btn-app bg-info"href="{{ route('sertifikat.index') }}">
+                            <i class="fas fa-recycle"></i> Reset</a>
+                    @endif
                     <div class="col-md-3 ml-auto">
                         <form method="get" action="{{ route('sertifikat.index') }}">
                             <div class="input-group">
                                 <input type="search" class="form-control form-control-sm" id="keyword" name="keyword"
                                     value="{{ request('keyword') }}" placeholder="Search by Nama Peserta">
                                 <div class="input-group-append">
-                                    <button class="btn btn-sm btn-success" type="submit">
+                                    <button class="btn btn-sm btn-default">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    @if (Request::get('keyword'))
-                        <a class="btn btn-app bg-info" href="{{ route('sertifikat.index') }}">
-                            <i class="fas fa-recycle"></i> Reset</a>
-                    @endif
                 </div>
                 @if (Request::get('keyword'))
                     <div class="alert alert-info alert-block">
@@ -59,12 +59,13 @@
                     <div class="col-4"></div>
                     <div class="col-auto">
                         <p>Buat akses pembelajaranmu semakin mudah dengan Codely</p>
+
                     </div>
                     <div class="col-4"></div>
                 </div>
             </div>
 
-            <!-- Display search results -->
+
             <div class="table">
                 <table class="table">
                     <thead>
@@ -82,10 +83,15 @@
                         <tr>
                             <td colspan="5" class="text-center">Tidak ada hasil</td>
                         </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpc
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

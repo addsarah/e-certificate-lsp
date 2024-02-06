@@ -7,6 +7,7 @@ use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SertifikatController extends Controller
 {
@@ -26,6 +27,23 @@ class SertifikatController extends Controller
         $sertifikat = $sertifikat->paginate(25);
         return view('sertifikat.index', compact('sertifikat'));
     }
+
+    public function search(Request $request)
+    {
+        $sertifikat = Sertifikat::orderBy('nama_instansi', 'asc')
+        ->join('pesertas', 'sertifikats.id_peserta', '=', 'pesertas.id')
+        ->select('sertifikats.*', 'pesertas.nama_peserta')
+        ->with('peserta');
+
+        $filterKeyword = $request->keyword;
+        if ($filterKeyword) {
+            $sertifikat->where('pesertas.nama_peserta', 'like', "%$filterKeyword%");
+        }
+
+        $sertifikat = $sertifikat->paginate(25);
+        return view('sertifikat.index', compact('sertifikat'));
+    }
+
 
     public function create()
     {
@@ -70,7 +88,7 @@ class SertifikatController extends Controller
         $input['gambar_ttdmentor'] = $namafoto_ttdmentor;
     
         Sertifikat::create($input);
-    
+        Alert::success('Berhasil', 'Data Sertifikat Berhasil ditambahkan');
         return redirect()->route('sertifikat.index')->with('success', 'Data Sertifikat berhasil ditambah');
     }
 
@@ -142,7 +160,8 @@ class SertifikatController extends Controller
         }
     
         $sertifikat->update($input);
-    
+        Alert::success('Berhasil', 'Data Sertifikat Berhasil diubah');
+
         return redirect()->route('sertifikat.index')->with('success', 'Data Sertifikat berhasil diupdate');
     
     }

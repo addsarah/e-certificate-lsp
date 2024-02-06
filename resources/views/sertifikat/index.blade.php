@@ -9,32 +9,31 @@
         <div class="col">
             <div class="col-md-12">
                 <div class="box-header with-border">
-                    @if(Request::get('keyword'))
-                   <a class="btn btn-app bg-info"href="{{ route('sertifikat.index')}}" >
-                 <i class="fas fa-recycle"></i> Reset</a>  
-               @else
-               <a class="btn btn-app bg-success"href="{{ route('sertifikat.create')}}" >
-                 <i class="fas fa-plus"></i> Tambah</a>     
-               @endif
-               <div class="col-md-3 ml-auto">
-                <form method="get" action="{{ route('sertifikat.index') }}">
-                    <div class="input-group">
-                        <input type="search" class="form-control form-control-sm" id="keyword" name="keyword"
-                            value="{{ request('keyword') }}" placeholder="Search by Nama Peserta">
-                        <div class="input-group-append">
-                            <button class="btn btn-sm btn-default">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                    @if (Request::get('keyword'))
+                        <a class="btn btn-app bg-info"href="{{ route('sertifikat.index') }}">
+                            <i class="fas fa-recycle"></i> Reset</a>
+                    @else
+                        <a class="btn btn-app bg-success"href="{{ route('sertifikat.create') }}">
+                            <i class="fas fa-plus"></i> Tambah</a>
+                    @endif
+                    <div class="col-md-3 ml-auto">
+                        <form method="get" action="{{ route('sertifikat.index') }}">
+                            <div class="input-group">
+                                <input type="search" class="form-control form-control-sm" id="keyword" name="keyword"
+                                    value="{{ request('keyword') }}" placeholder="Search by Nama Peserta">
+                                <div class="input-group-append">
+                                    <button class="btn btn-sm btn-default">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-            
                 </div>
                 @if (Request::get('keyword'))
-                <div class="alert alert-info alert-block">
-                Hasil pencarian sertifikat dengan keyword: <b>{{Request::get('keyword')}}</b>
-                </div>
+                    <div class="alert alert-info alert-block">
+                        Hasil pencarian sertifikat dengan keyword: <b>{{ Request::get('keyword') }}</b>
+                    </div>
                 @endif
                 <table class="table table-bordered">
                     <thead>
@@ -51,13 +50,13 @@
                     <tbody>
                         @foreach ($sertifikat as $row)
                             <tr>
-                                <td>{{ $loop->iteration + ($sertifikat ->perpage() * ($sertifikat->currentPage()-1))}}</td>
+                                <td>{{ $loop->iteration + $sertifikat->perpage() * ($sertifikat->currentPage() - 1) }}</td>
                                 <td>{{ $row->peserta->nama_peserta }}</td>
                                 <td>{{ $row->peserta->no_serti }}</td>
                                 <td>{{ $row->peserta->tema_pel }}</td>
                                 <td>{{ $row->nama_mentor }}</td>
-                                <td>{{ $row->nama_instansi}}</td>
-                                <td>{{ $row->tanggal}}</td>
+                                <td>{{ $row->nama_instansi }}</td>
+                                <td>{{ $row->tanggal }}</td>
                                 <td>
                                     <form method="POST" action="{{ route('sertifikat.destroy', [$row->id]) }}"
                                         onsubmit="return confirm('Apakah anda yakin akan menghapus,{{ $row->name }}?..')">
@@ -66,13 +65,13 @@
                                         <button type="submit" class="btn btn-danger">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                         <a class="btn btn-info" href="{{ route('sertifikat.edit', [$row->id]) }}">
+                                        <a class="btn btn-info" href="{{ route('sertifikat.edit', [$row->id]) }}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <a class="btn btn-warning" href="{{ route('sertifikat.show', [$row->id]) }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a class="btn btn-success" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
+                                        <a class="btn btn-success" href="{{ route('cetak_sertifikat', [$row->id]) }}">
                                             <i class="fas fa-print"></i>
                                         </a>
                                     </form>
