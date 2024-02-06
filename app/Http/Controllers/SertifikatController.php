@@ -105,48 +105,43 @@ class SertifikatController extends Controller
             'nama_instansi' => 'required',
             'tempat' => 'required',
             'tanggal' => 'required|date',
-            'gambar_ttdceo' => 'image|mimes:jpeg,jpg,png|max:2048',
-            'gambar_ttdmentor' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'gambar_ttdceo' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'gambar_ttdmentor' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
     
         if ($validator->fails()) {
-            return redirect()->route('sertifikat.edit', $id)->withInput()->withErrors($validator);
+            return redirect()->route('sertifikat.create', $id)->withInput()->withErrors($validator);
         }
-    
-        // Update the fields
-        $sertifikat->pesertas_id = $input['pesertas_id'];
-        $sertifikat->deskripsi = $input['deskripsi'];
-        $sertifikat->nama_ceo = $input['nama_ceo'];
-        $sertifikat->nama_mentor = $input['nama_mentor'];
-        $sertifikat->nama_instansi = $input['nama_instansi'];
-        $sertifikat->tempat = $input['tempat'];
-        $sertifikat->tanggal = $input['tanggal'];
-    
-        // Update gambar_ttdceo if a new file is provided
+
+        
         if ($request->hasFile('gambar_ttdceo')) {
-            // Delete the old image
-            Storage::disk('upload')->delete($sertifikat->gambar_ttdceo);
-    
-            $gambar_ttdceo = $request->file('gambar_ttdceo');
-            $extention_ttdceo = $gambar_ttdceo->getClientOriginalExtension();
-            $namafoto_ttdceo = "sertifikat_ttdceo/" . date('YmdHis') . "." . $extention_ttdceo;
-            $upload_path_ttdceo = "uploads/sertifikat_ttdceo";
-            $gambar_ttdceo->move($upload_path_ttdceo, $namafoto_ttdceo);
-            $sertifikat->gambar_ttdceo = $namafoto_ttdceo;
+            if($request->file('gambar_ttdceo')->isValid())
+            {
+                Storage::disk('upload')->delete($sertifikat->gambar_ttdceo);
+                $gambar_ttdceo = $request->file('gambar_ttdceo');
+            
+                $extention_ttdceo = $gambar_ttdceo->getClientOriginalExtension();
+                $namafoto_ttdceo = "sertifikat_ttdceo/" . date('YmdHis') . "." . $extention_ttdceo;
+                $upload_path_ttdceo = "uploads/sertifikat_ttdceo";
+                $request->file('gambar_ttdceo')->move($upload_path_ttdceo, $namafoto_ttdceo);
+                $input['gambar_ttdceo'] = $namafoto_ttdceo;
+            }
         }
-    
-        // Update gambar_ttdmentor if a new file is provided
+        
         if ($request->hasFile('gambar_ttdmentor')) {
-            // Delete the old image
-            Storage::disk('upload')->delete($sertifikat->gambar_ttdmentor);
-    
-            $gambar_ttdmentor = $request->file('gambar_ttdmentor');
-            $extention_ttdmentor = $gambar_ttdmentor->getClientOriginalExtension();
-            $namafoto_ttdmentor = "sertifikat_ttdmentor/" . date('YmdHis') . "." . $extention_ttdmentor;
-            $upload_path_ttdmentor = "uploads/sertifikat_ttdmentor";
-            $gambar_ttdmentor->move($upload_path_ttdmentor, $namafoto_ttdmentor);
-            $sertifikat->gambar_ttdmentor = $namafoto_ttdmentor;
+            if($request->file('gambar_ttdmentor')->isValid())
+            {
+                Storage::disk('upload')->delete($sertifikat->gambar_ttdmentor);
+                $gambar_ttdmentor = $request->file('gambar_ttdmentor');
+            
+                $extention_ttdmentor = $gambar_ttdmentor->getClientOriginalExtension();
+                $namafoto_ttdmentor = "sertifikat_ttdmentor/" . date('YmdHis') . "." . $extention_ttdmentor;
+                $upload_path_ttdmentor = "uploads/sertifikat_ttdmentor";
+                $request->file('gambar_ttdmentor')->move($upload_path_ttdmentor, $namafoto_ttdmentor);
+                $input['gambar_ttdmentor'] = $namafoto_ttdmentor;
+            }
         }
+        
     
         $sertifikat->save();
     

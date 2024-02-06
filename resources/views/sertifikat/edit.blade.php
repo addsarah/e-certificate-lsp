@@ -90,21 +90,34 @@
                                         value="{{ $sertifikat->tanggal }}">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="gambar_ttdceo">Edit Gambar TTD CEO</label>
-                                <div class="custom-file">
-                                    <input type="file" name="gambar_ttdceo" class="custom-file-input" id="gambar_ttdceo">
-                                    <label class="custom-file-label" for="gambar_ttdceo">Choose file</label>
+                            <div class="form-group" align="center">
+                                <label for="gambar_ttdceo">
+                                    <img class="img-thumbnail" src="{{ asset('uploads/' . $sertifikat->gambar_ttdceo) }}" width="150px" />
+                                </label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="gambar_ttdceo" class="custom-file-input" id="gambar_ttdceo">
+                                        <label class="custom-file-label" for="gambar_ttdceo"></label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Edit Gambar TTD CEO</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="gambar_ttdmentor">Edit Gambar TTD Mentor</label>
-                                <div class="custom-file">
-                                    <input type="file" name="gambar_ttdmentor" class="custom-file-input" id="gambar_ttdmentor">
-                                    <label class="custom-file-label" for="gambar_ttdmentor">Choose file</label>
+                            <div class="form-group" align="center">
+                                <label for="gambar_ttdmentor">
+                                    <img class="img-thumbnail" src="{{ asset('uploads/' . $sertifikat->gambar_ttdmentor) }}" width="150px" />
+                                </label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="gambar_ttdmentor" class="custom-file-input" id="gambar_ttdmentor">
+                                        <label class="custom-file-label" for="gambar_ttdmentor"></label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Edit Gambar TTD Pelatih</span>
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
+                            </div>                            
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
