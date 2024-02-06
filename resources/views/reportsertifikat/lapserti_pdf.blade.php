@@ -40,26 +40,31 @@
             .ttd-container {
                 display: flex;
                 justify-content: space-between;
+                align-items: flex-end;
                 margin-top: 20px;
             }
 
-            .ttd-ceo,
+            .ttd-ceo {
+                width: 90%;
+                text-align: left;
+            }
+
             .ttd-mentor {
-                width: 48%;
-                text-align: center;
+                width: 90%;
+                text-align: right;
             }
 
             .ttd-ceo img,
             .ttd-mentor img {
-                width: 50px;
+                width: 100px;
                 margin-top: 10px;
-                border-radius: 50%; /* Make the images circular */
+                border-radius: 50%;
             }
 
             .ttd-ceo p,
             .ttd-mentor p {
                 margin-top: 5px;
-                font-size: 14px; /* Adjust as needed */
+                font-size: 14px;
             }
         </style>
     </head>
