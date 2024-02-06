@@ -68,10 +68,13 @@
                                         </button>
                                          <a class="btn btn-info" href="{{ route('sertifikat.edit', [$row->id]) }}">
                                             <i class="fa fa-edit"></i>
-                                        </a> 
-                                        <a class="btn btn-success" href = "{{route('cetak_sertifikat',[$row->id]) }}"  >
-                                            <i class="fas fa-print"></i>
                                         </a>
+                                        <a class="btn btn-warning" href="{{ route('sertifikat.show', [$row->id]) }}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a class="btn btn-success" href="{{ route('cetak_sertifikat', ['id' => $row->id]) }}">
+                                            <i class="fas fa-print"></i>
+                                        </a>                                                                                                                        
                                     </form>
                                 </td>
                             </tr>

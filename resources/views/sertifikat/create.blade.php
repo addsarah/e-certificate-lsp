@@ -43,16 +43,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <input type="text" class="form-control" type="text" name="deskripsi" value="{{ old('deskripsi') }} placeholder="Input Deskripsi Pelatihan, maksimal 254 kata"></textarea>
+                                    <input type="text" class="form-control" type="text" name="deskripsi" value="{{ old('deskripsi') }}" placeholder="Input Deskripsi Pelatihan, maksimal 254 kata"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 label-control">Nama Ceo</label>
+                                    <label>Nama Ceo</label>
                                     <div class="col-sm-12">
                                         <input type="text" class="form-control" placeholder="input nama ceo" name="nama_ceo" value="{{old('nama_ceo')}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 label-control">Nama Pelatih</label>
+                                    <label>Nama Pelatih</label>
                                     <div class="col-sm-12">
                                         <input type="text" class="form-control" placeholder="input nama pelatih" name="nama_mentor" value="{{old('nama_mentor')}}">
                                     </div>
@@ -95,8 +95,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary col-sm-2">Add</button>
-                                <a href="{{ route('sertifikat.index') }}" class="btn btn-danger col-sm-2">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Add</button>
+                                <a href="{{ route('sertifikat.index') }}" class="btn btn-danger float-right">Cancel</a>
                             </div>
                         </form>
                     </div>
