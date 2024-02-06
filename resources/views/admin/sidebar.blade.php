@@ -40,6 +40,14 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="{{ route('sertifikat.index') }}" class="nav-link">
+            <i class="fas fa-file-pdf-o"></i>
+            <p>
+              Template
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <form method="POST" action="{{ route('logout') }}" class="nav-link">
               @csrf
               <button type="submit" class="btn btn-link">
