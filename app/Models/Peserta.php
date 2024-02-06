@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Peserta extends Model
 {
@@ -16,8 +17,8 @@ class Peserta extends Model
         'tema_pel'
     ];
 
-    public function sertifikat()
+    public function sertifikat():HasOne
     {
-        return $this->hasMany(Sertifikat::class);
+        return $this->hasOne(Sertifikat::class, 'id_peserta');
     }
 }
