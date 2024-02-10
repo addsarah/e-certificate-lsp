@@ -60,7 +60,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>No. Sertifikat</th>
+                            <th>No Sertifikat</th>
                             <th>Tema Pelatihan</th>
                             <th>Action</th>
                         </tr>
