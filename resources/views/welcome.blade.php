@@ -30,15 +30,14 @@
             <div class="mb-3">
                 <h3 class="text-center mb-3 " style="margin-top: 15rem">Dapatkan Sertifikatmu Disini</h3>
                 <div class="row">
-                    <div class="col-4">
-
+                    <div class="col-12">
                         <form action="/" method="post">
                             @csrf
                             <div class="mb-3">
-                                <input type="text" name="search" class="form-control mb-3" id="nama"
+                                <input type="text" name="search" class="form-control mb-3 ml-auto" id="nama"
                                     placeholder="Tulis nama anda">
                                 <!-- Change the name attribute to 'search' -->
-                                <button type="submit" class="btn btn-primary btn-cari">Cari</button>
+                                <button type="submit" class="btn btn-primary btn-cari ml-auto">Cari</button>
                             </div>
                         </form>
 
@@ -77,7 +76,7 @@
                             <td>
                                 @if ($peserta->isNotEmpty() && $peserta[0]->sertifikat)
                                 <a class="btn btn-success" href="{{ route('cetak_sertifikat', [$peserta[0]->sertifikat->id]) }}">
-                                    <p>PRINT</p>
+                                    <i class="bi bi-printer"></i> PRINT
                                 </a>
                             @endif
                             </td>

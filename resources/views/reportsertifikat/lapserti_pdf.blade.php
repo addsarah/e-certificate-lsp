@@ -23,7 +23,7 @@
         }
 
         .header {
-            color: #ece517;
+            color: #0c27be;
             font-size: 32px;
             margin-bottom: 10px;
         }

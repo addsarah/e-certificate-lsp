@@ -42,7 +42,7 @@
                             <th>Nama Peserta</th>
                             <th>No Sertifikat</th>
                             <th>Tema Pelatihan</th>
-                            <th>Nama Mentor</th>
+                            <th>Nama Pelatih</th>
                             <th>Nama Instansi</th>
                             <th>Tanggal</th>
                         </tr>
