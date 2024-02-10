@@ -63,6 +63,11 @@
             right: 50px;
             text-align: right;
         }
+
+        /* Additional styles to move content down */
+        .additional-space {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -77,6 +82,9 @@
             <p class="info">{{ $row->deskripsi }}</p>
             <p class="info">Yang diselenggarakan oleh {{ $row->nama_instansi }}</p>
             <p class="info">{{ $row->tempat }}, {{ strftime('%d %B %Y', strtotime($row->tanggal)) }}</p>
+
+            <!-- Additional space -->
+            <div class="additional-space"></div>
 
             <!-- CEO Signature and Name -->
             <div class="ttd-ceo">
