@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
   <!-- Brand Logo -->
   <a href="{{ route('dashboard') }}" class="brand-link">
-    <span class="brand-text font-weight-light">E-Sertif</span>
+    <span class="brand-text font-weight-light">E-Sertifikat</span>
   </a>
 
   <!-- Sidebar -->
@@ -36,14 +36,6 @@
             <i class="fas fa-award nav-icon"></i>
             <p>
               Sertifikat
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route('sertifikat.index') }}" class="nav-link">
-            <i class="fas fa-file-pdf-o"></i>
-            <p>
-              Template
             </p>
           </a>
         </li>
